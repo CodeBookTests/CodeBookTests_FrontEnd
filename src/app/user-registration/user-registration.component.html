@@ -1,1 +1,90 @@
-<p>user-registration works!</p>
+<!-- <p>{{ message }}</p> -->
+<!-- <form (ngSubmit)="registerUser()" [formGroup]="form1">
+    Enter email : <input type="text" name="email" [(ngModel)]=userRegistration.email /> <br />
+    Enter password : <input type="password" name="password" [(ngModel)]=userRegistration.password /> <br />
+    Full Name : <input type="text" name="fullName" [(ngModel)]=userRegistration.fullName/> <br />
+    Mobile : <input type="number" name="mobile" [(ngModel)]=userRegistration.mobile/> <br />
+    City : <input type="text" name="city" [(ngModel)]=userRegistration.city/> <br />
+    State : <input type="text" name="state" [(ngModel)]=userRegistration.state/> <br />
+    DOB : <input type="date" name="dob" [(ngModel)]=userRegistration.dob/> <br />
+    Qualification : <input type="text" name="qualification" [(ngModel)]=userRegistration.qualification/> <br />
+    Year of Completion : <input type="number" name="yoc" [(ngModel)]=userRegistration.yoc/> <br />
+    <button type="submit">Register</button> 
+</form> -->
+
+<form  [formGroup]="form1" (ngSubmit)="registerUser()" style="width: 500px; margin: auto;">
+    <div class="form-group">
+        Enter email : <input type="text" name="email" [(ngModel)]=userRegistration.email class="form-control" formControlName="email" > 
+        <div *ngIf="form1.get('email').touched">
+            <div *ngIf="form1.get('email').hasError('required')" class="alert alert-danger" 
+        >
+                Please Enter email
+            </div>
+            <div *ngIf="form1.get('email').invalid" class="alert alert-danger">
+                Please Enter Correct Email Address
+            </div>
+        </div>
+
+        Enter password : <input type="password" name="password" [(ngModel)]=userRegistration.password class="form-control" formControlName="password" > 
+        <div *ngIf="form1.get('password').touched">
+            <div *ngIf="form1.get('password').hasError('required')" class="alert alert-danger">
+                Please Enter password
+            </div>
+        </div>
+
+        Full Name : <input type="text" name="fullName" [(ngModel)]=userRegistration.fullName class="form-control" formControlName="fullName" > 
+        <div *ngIf="form1.get('fullName').touched">
+            <div *ngIf="form1.get('fullName').hasError('required')" class="alert alert-danger">
+                Please Enter Full Name
+            </div>
+        </div>
+
+        Mobile : <input type="number" name="mobile" [(ngModel)]=userRegistration.mobile class="form-control" formControlName="mobile" > 
+        <div *ngIf="form1.get('mobile').touched">
+            <div *ngIf="form1.get('mobile').hasError('required')" class="alert alert-danger" >
+                Please Enter email
+            </div>
+            <div *ngIf="form1.get('mobile').invalid" class="alert alert-danger">
+                Please Enter Correct Email Address
+            </div>
+        </div>
+
+        City : <input type="text" name="city" [(ngModel)]=userRegistration.city class="form-control" formControlName="city" > 
+        <div *ngIf="form1.get('city').touched">
+            <div *ngIf="form1.get('city').hasError('required')" class="alert alert-danger">
+                Please Enter City
+            </div>
+        </div>
+
+        State : <input type="text" name="state" [(ngModel)]=userRegistration.state class="form-control" formControlName="state" > 
+        <div *ngIf="form1.get('state').touched">
+            <div *ngIf="form1.get('state').hasError('required')" class="alert alert-danger">
+                Please Enter State
+            </div>
+        </div>
+
+        Date of Birth : <input type="date" name="dob" [(ngModel)]=userRegistration.dob class="form-control" formControlName="dob" > 
+        <div *ngIf="form1.get('dob').touched">
+            <div *ngIf="form1.get('dob').hasError('required')" class="alert alert-danger">
+                Please Enter State
+            </div>
+        </div>
+
+        Qualification : <input type="text" name="qualification" [(ngModel)]=userRegistration.qualification class="form-control" formControlName="qualification" > 
+        <div *ngIf="form1.get('qualification').touched">
+            <div *ngIf="form1.get('qualification').hasError('required')" class="alert alert-danger">
+                Please Enter Qualification
+            </div>
+        </div>
+
+        Year of Completion : <input type="text" name="yoc" [(ngModel)]=userRegistration.yoc class="form-control" formControlName="yoc" > 
+        <div *ngIf="form1.get('yoc').touched">
+            <div *ngIf="form1.get('yoc').hasError('required')" class="alert alert-danger">
+                Please Enter Qualification
+            </div>
+        </div>
+
+
+    </div>
+    <button type="submit">Register</button> 
+</form>

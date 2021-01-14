@@ -7,6 +7,13 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { UserLoginComponent } from './user-login/user-login.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { HomeComponent } from './home/home.component';
+import { ExamUIComponent } from './exam-ui/exam-ui.component';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ExamSelectionComponent } from './exam-selection/exam-selection.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -15,11 +22,19 @@ import { HomeComponent } from './home/home.component';
     UserRegistrationComponent,
     UserLoginComponent,
     AdminLoginComponent,
-    HomeComponent
+
+    HomeComponent,
+    ExamUIComponent,
+    MenuBarComponent,
+    UserDashboardComponent,
+    AboutUsComponent,
+    ExamSelectionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

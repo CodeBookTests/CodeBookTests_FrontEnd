@@ -1,10 +1,22 @@
-<p>user-login works!</p>
-<form >
+<form  [formGroup]="form1" (ngSubmit)="loginCheck()" style="width: 500px; margin: auto;">
+    <div class="form-group">
+        Enter email : <input type="text" name="email" [(ngModel)]=userLogin.email class="form-control" formControlName="email" > 
+        <!-- <div *ngIf="form1.get('email').touched"> -->
+            <div *ngIf="form1.get('email').hasError('required') && form1.get('email').touched && form1.get('email').pristine" class="alert alert-danger" >
+                Please Enter email
+            </div>
+            <div *ngIf="form1.get('email').invalid && form1.get('email').dirty" class="alert alert-danger">
+                Please Enter Correct Email Address
+            </div>
+        <!-- </div> -->
 
-    Enter email : <input type="text" name="email" /> <br />
+        Enter password : <input type="password" name="password" [(ngModel)]=userLogin.password class="form-control" formControlName="password" > 
+        <div *ngIf="form1.get('password').touched">
+            <div *ngIf="form1.get('password').hasError('required')" class="alert alert-danger">
+                Please Enter email
+            </div>
+        </div>
 
-    Enter password : <input type="password" name="password" /> <br />
-
+    </div>
     <button type="submit">Login</button> 
-
 </form>
