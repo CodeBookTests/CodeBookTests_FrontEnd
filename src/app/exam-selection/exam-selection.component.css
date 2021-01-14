@@ -1,0 +1,49 @@
+.square {
+    float:left;
+    position: relative;
+    width: 30%;
+    padding-bottom : 20%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    background-color: lavender;
+    overflow:hidden;
+}
+
+.content {
+    position:absolute;
+    height:90%; 
+    width:90%; 
+    padding: 6%;    
+}
+p {
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    /*text-align: center;*/
+}
+body {
+    font-size:20px;
+    font-family: 'Lato',verdana, sans-serif;
+    color: #fff;
+    background:#ECECEC;
+}
+
+.button {    
+    background-color: lightblue; 
+    color: black; 
+    /*border: 2px solid black;*/
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;   
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    align-items: center;
+  }
+    
+  .button:hover {
+    background-color: steelblue;
+    color: white;
+  }
+  
