@@ -6,6 +6,7 @@ import { ExamUIComponent } from './exam-ui/exam-ui.component';
 import { HomeComponent } from './home/home.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ExamSelectionComponent } from './exam-selection/exam-selection.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'exam_ui',component:ExamUIComponent},
   {path:'userDashboard',component:UserDashboardComponent},
   {path:'userNavBar',component:MenuBarComponent},
-  {path:'aboutUs',component:AboutUsComponent}
+  {path:'aboutUs',component:AboutUsComponent},
+  {path:'exam_selection',component:ExamSelectionComponent }
 ];
 
 @NgModule({
