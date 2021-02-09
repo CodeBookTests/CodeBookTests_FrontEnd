@@ -4,6 +4,8 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from '../appmodel/login';
 import { UserService } from '../user.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
 
 @Component({
   selector: 'app-user-login',
@@ -11,19 +13,29 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
-
+  sessionUser : String = sessionStorage.getItem("userId");
   form1  : FormGroup;
   login : Login = new Login();
   message: String;
   constructor(private userService: UserService, private router: Router) {​​​​ }​​​​
 
+  forgetPassword() {
+
+    this.userService.forgetPassword(this.login.email).subscribe(response => {alert("we have sent you email for setting new password ")});
+    sessionStorage.setItem("isAuthenticated", "true");
+  }
   
+  logout() {
+    sessionStorage.clear();
+  }
   loginCheck() {​​​​
   console.log(this.login);
 
   this.userService.login(this.login).subscribe(response => {​​​​
-
-    alert(JSON.stringify(response));
+    Swal.fire(
+      response.status,
+      response.message
+    )
 
     console.log(response);
 
@@ -31,20 +43,21 @@ export class UserLoginComponent implements OnInit {
 
       //let fullName = response.fullName;
 
-      let email = response.email;
+      
 
       //sessionStorage.setItem('fullName', fullName);
 
-      sessionStorage.setItem('email',email );
+      sessionStorage.setItem('email',String(this.login.email) );
+      sessionStorage.setItem('userId',response.userId );
 
-      this.router.navigate(['']);
+      this.router.navigate(['userDashboard']);
 
     }​​​​
 
-    else
-
+    else{
+      this.router.navigate(['user_registration']);
       this.message = response.message;
-
+    }
   }​​​​)
 
 }​​​​
@@ -56,7 +69,7 @@ export class UserLoginComponent implements OnInit {
         email: new FormControl('', [Validators.required, 
         Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
         password: new FormControl('', [Validators.required, 
-          Validators.pattern('/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/')])
+        Validators.pattern('^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$')])
       }
     )
   }

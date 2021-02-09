@@ -1,11 +1,9 @@
-<div class="card-header">
-  <ul class="nav nav-pills card-header-pills">
-    <li class="nav-item">
-      <a class="nav-link active" href="userDashboard">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="aboutUs">About Us</a>
-    </li>
-  </ul>
+<div class="topnav">
+  <a href="#" class="active" >Home</a>
+  <a href="admin_login" *ngIf="sessionUser==null && sessionAdmin==null" >Admin</a>
+  <a href="admin_dashboard" *ngIf="sessionUser==null && sessionAdmin!=null" >Admin</a>
+  <a href="userDashboard" *ngIf="sessionUser!=null">User Dashboard</a>
+  <a href="user_login" class="right" *ngIf="sessionUser==null && sessionAdmin==null">SignIn</a>
+  <a href="#" class="right" (click)="logout()"  *ngIf="sessionUser!=null || sessionAdmin!=null" >Logout</a>
+  <a href="user_registration"  class="right" *ngIf="sessionAdmin==null" >SignUp</a>
 </div>
-

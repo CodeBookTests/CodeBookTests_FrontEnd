@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Register } from '../appmodel/register';
 import { UserService } from '../user.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 
 @Component({
@@ -10,24 +12,21 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-
+  sessionUser : String = sessionStorage.getItem("userId");
   userRegistration:Register = new Register();
   form1: FormGroup;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router:Router) { }
 
   // constructor(private customerService: CustomerService, private router: Router) { }
   registerUser() {
-    this.userService.login(this.userRegistration).subscribe(response => {
-      alert(JSON.stringify(response));
-      // if(response.status == 'SUCCESS') {
-      //   let customerId = response.customerId;
-      //   let customerName = response.customerName;
-      //   sessionStorage.setItem('customerId', String(customerId));
-      //   sessionStorage.setItem('customerName', customerName);
-      //   this.router.navigate(['dashboard']);
-      // }
-      // else
-      //   this.message = response.message;
+    this.userService.register(this.userRegistration).subscribe(response => {
+      Swal.fire(
+        response.status,
+        response.message
+      )
+      if(response.status=="SUCCESS"){
+        this.router.navigate(['user_login'])
+      }
     })
   }
 
@@ -38,19 +37,17 @@ export class UserRegistrationComponent implements OnInit {
         Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
 
       password: new FormControl('', [Validators.required,
-        Validators.pattern('/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/')]),
+        Validators.pattern('^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$')]),
 
       fullName: new FormControl('', [Validators.required, 
-        Validators.pattern('/^[a-zA-Z]+ [a-zA-Z]+$/')]),
+        Validators.pattern('^[a-zA-Z]+ [a-zA-Z]+$')]),
       
       mobile: new FormControl('', [Validators.required,
-        Validators.pattern('/^\d{10}$/')]),
+        Validators.pattern('^[0-9]{10}$')]),
 
-      city: new FormControl('', [Validators.required,
-        Validators.pattern('^[a-zA-Z ]*$')]),
+      city: new FormControl('', [Validators.required]),
 
-      state: new FormControl('', [Validators.required,
-        Validators.pattern('^[a-zA-Z ]*$')]),
+      state: new FormControl('', [Validators.required]),
 
       dob: new FormControl('', [Validators.required]),
 
@@ -58,8 +55,11 @@ export class UserRegistrationComponent implements OnInit {
        Validators.pattern('^[a-zA-Z ]*$') ]),
 
       yoc: new FormControl('', [Validators.required,
-        Validators.pattern('/^\d{10}$/')])
+        Validators.pattern('^[0-9]{4}$')])
     })
+  }
+  logout() {
+    sessionStorage.clear();
   }
 
 }

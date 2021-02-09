@@ -1,35 +1,82 @@
-.btn-xl {
-    padding: 10px 20px;
-    font-size: 20px;
-    border-radius: 10px;
+body {
+  margin: 0;  
+  font-family: Arial, Helvetica, sans-serif;
 }
-.center {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
-  }
 
-  .container {
-    position: relative;
-  }
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.topnav a.right {
+  float:right;
+}
+
+img {
+  max-width: 100%;
+  height: 400px;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+.leftside{
+  width: 50%;
+  height:450px;
+}
+.rightside{
+  width:50%;
   
-  .child {
-    /* Center vertically and horizontally */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -25px 0 0 -25px; /* apply negative top and left margins to truly center the element */
-  }
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-  .jc-center {
-    justify-content: center;
-  }
-  
-  button.margin-right {
-    margin-right: 20px;
-  }
-
-  .flex-parent {
-    display: flex;
-  }
+.content{
+  font-family: serif;  
+  font-size: 25px;
+  position:relative;
+  text-align:justify;
+}
+.title{
+  font-family: serif;
+  font-style: oblique;
+  font-size: 35px;
+  color:green;
+  position:relative;
+}
+.test{
+  font-size: 30px;
+  color: cornflowerblue;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:black;
+  color: white;
+  text-align: center;
+}

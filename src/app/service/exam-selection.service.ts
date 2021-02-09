@@ -9,7 +9,7 @@ export class ExamSelectionService {
   constructor(private http: HttpClient) { }
 
   examselection(courseid: number,userid:number) : Observable<any> {
-    let url = "http://localhost:8082/exam_selection/{courseid}/{userid}";
+    let url = "http://localhost:8082/exam_selection/"+courseid+"/"+userid;
    return this.http.get(url); 
   }
 

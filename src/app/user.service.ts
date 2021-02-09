@@ -21,4 +21,15 @@ export class UserService {
     return this.http.post(url, register);
   }
 
+  updatePassword(login:Login):Observable<any>{
+    let url = "http://localhost:8082/updatePassword";
+    return this.http.post(url, login);  
+  }
+
+  forgetPassword(email:String): Observable<any> {
+    let url="http://localhost:8082/forgot_password/"+email;
+    return this.http.get(url,{responseType: 'text'});
+  }
+
+
 }

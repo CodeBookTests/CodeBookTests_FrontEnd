@@ -13,8 +13,16 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ExamSelectionComponent } from './exam-selection/exam-selection.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { ReportSuccessComponent } from './report-success/report-success.component';
+import { AdminSearchComponent } from './admin-search/admin-search.component';
+import { RemoveQuestionComponent } from './remove-question/remove-question.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { Report } from './appmodel/report';
+import { ReportComponent } from './report/report.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +30,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserRegistrationComponent,
     UserLoginComponent,
     AdminLoginComponent,
-
     HomeComponent,
     ExamUIComponent,
     MenuBarComponent,
     UserDashboardComponent,
     AboutUsComponent,
-    ExamSelectionComponent
+    ExamUIComponent,
+    ExamSelectionComponent,
+    ReportSuccessComponent,
+    AdminSearchComponent,
+    RemoveQuestionComponent,
+    AddQuestionComponent,
+    AdminDashboardComponent,
+    ReportComponent,
+    ForgotPasswordComponent,
+    InstructionsComponent
   ],
   imports: [
+    HttpClientModule,
+    AppRoutingModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

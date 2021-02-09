@@ -9,6 +9,15 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { ExamSelectionComponent } from './exam-selection/exam-selection.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { ReportSuccessComponent } from './report-success/report-success.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { RemoveQuestionComponent } from './remove-question/remove-question.component';
+import { AdminSearchComponent } from './admin-search/admin-search.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { Report } from './appmodel/report';
+import { ReportComponent } from './report/report.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -19,7 +28,15 @@ const routes: Routes = [
   {path:'userDashboard',component:UserDashboardComponent},
   {path:'userNavBar',component:MenuBarComponent},
   {path:'aboutUs',component:AboutUsComponent},
-  {path:'exam_selection',component:ExamSelectionComponent }
+  {path:'exam_selection',component:ExamSelectionComponent },
+  {path:'report_success',component:ReportSuccessComponent},
+  {path:'add_question', component:AddQuestionComponent},
+  {path:'remove_question', component:RemoveQuestionComponent},
+  {path:'search_students', component:AdminSearchComponent},
+  {path:'admin_dashboard', component:AdminDashboardComponent},
+  {path:'user_report', component:ReportComponent},
+  {path:'forget_password', component:ForgotPasswordComponent},
+  {path:'exam_instructions',component:InstructionsComponent}
 ];
 
 @NgModule({
